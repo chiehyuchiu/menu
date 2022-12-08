@@ -20,6 +20,8 @@ public class Menu extends AppCompatActivity {
         pager = findViewById(R.id.pager);
 
 
+
+
         pagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
