@@ -5,6 +5,12 @@ import android.os.Bundle;
 import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 
+import java.text.ParseException;
+
+import Core.Strategy.CheckTime;
+import Core.Strategy.CurTime;
+import Core.Strategy.Timer;
+
 public class Menu extends AppCompatActivity {
     TabLayout tabs;
     ViewPager pager;
@@ -21,6 +27,13 @@ public class Menu extends AppCompatActivity {
 
 
 
+
+        Timer timer = new Timer();
+        try {
+            timer.CheckTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         pagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -48,6 +61,7 @@ public class Menu extends AppCompatActivity {
         pagerAdapter.addFragment(new fragmentDrinks(), "Drinks");
         viewPager.setAdapter(pagerAdapter);
     }
+
 }
 
 
